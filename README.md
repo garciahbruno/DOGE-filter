@@ -1,7 +1,3 @@
-Certainly! Here's a revised `README.md` tailored to your script, which serves as a "Doge Filter" by highlighting potentially problematic words in grant applications:
-
----
-
 # DOGE Filter: Grant Proposal Word Highlighter
 
 **DOGE Filter** is a Python script designed to assist grant writers by highlighting words and phrases in PDF documents that may trigger scrutiny or rejection in grant applications. T
