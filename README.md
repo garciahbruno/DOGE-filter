@@ -1,74 +1,72 @@
-
-````markdown
-# 📄 PDF Word Highlighter
-
-A Python script that highlights specific words or phrases in a PDF using the [`PyMuPDF`](https://pymupdf.readthedocs.io/) library.
+Certainly! Here's a revised `README.md` tailored to your script, which serves as a "Doge Filter" by highlighting potentially problematic words in grant applications:
 
 ---
 
-## 🔧 Requirements
+# DOGE Filter: Grant Proposal Word Highlighter
 
-- Python 3.7 or higher  
-- [`PyMuPDF`](https://pypi.org/project/PyMuPDF/)
+**DOGE Filter** is a Python script designed to assist grant writers by highlighting words and phrases in PDF documents that may trigger scrutiny or rejection in grant applications. T
 
-Install it with:
+## 🚀 Features
+
+* **PDF Highlighting**: Automatically highlights specified words and phrases in a PDF document.
+* **Customizable Word List**: Modify the list of target words to suit specific grant guidelines.
+* **Adjustable Highlight Colors**: Change the color of highlights to differentiate categories or levels of concern.
+
+## 🛠 Installation
+
+Ensure you have Python 3.7 or higher installed. Then, install the required library:
 
 ```bash
 pip install pymupdf
-````
-
----
-
-## 🗂 Setup
-
-1. Set the path to your PDF in the `FILE_NAME` variable:
-
-```python
-FILE_NAME = '/Users/yourname/Downloads/yourfile.pdf'
 ```
 
-2. Edit the `TARGET_WORDS` list to include the words or phrases you want to highlight:
+## 📄 Usage
+
+1. **Set the PDF File Path**: Update the `FILE_NAME` variable in the script to point to your PDF file.
+
+   ```python
+   FILE_NAME = '/path/to/your/document.pdf'
+   ```
+
+2. **Customize Target Words**: Modify the `TARGET_WORDS` list to include words or phrases you want to highlight.
+
+   ```python
+   TARGET_WORDS = [
+       "activism", "equity", "diverse", "inclusive", "systemic", "LGBTQ", "female", "race", "justice", "bias"
+   ]
+   ```
+
+3. **Run the Script**: Execute the script to generate a new PDF with highlighted terms.
+
+   ```bash
+   python doge_filter.py
+   ```
+
+   The output will be saved as `highlighted.pdf` in the same directory.
+
+## 🎨 Customizing Highlight Colors
+
+To change the highlight color, locate the following lines in the script:
 
 ```python
-TARGET_WORDS = ["diverse", "equity", "justice", ...]
-```
-
----
-
-## 🎨 Change Highlight Color
-
-To customize the highlight color, change this line:
-
-```python
-annot.set_colors(stroke=(R, G, B))
-```
-
-Common colors:
-
-* Red: `(1, 0, 0)`
-* Yellow: `(1, 1, 0)`
-* Green: `(0, 1, 0)`
-* Blue: `(0, 0, 1)`
-
-Don’t forget to follow it with:
-
-```python
+annot = page.add_highlight_annot(rects)
+annot.set_colors(stroke=(1, 0, 0))  # Red color
 annot.update()
 ```
 
+Modify the `stroke` parameter to your desired RGB color:
+
+* **Red**: `(1, 0, 0)`
+* **Yellow**: `(1, 1, 0)`
+* **Green**: `(0, 1, 0)`
+* **Blue**: `(0, 0, 1)`
+
+For example, to change the highlight color to yellow:
+
+```python
+annot.set_colors(stroke=(1, 1, 0))  # Yellow color
+```
 ---
+For inquiries email me at brunohg@umich.edu
 
-## 🚀 Run the Script
 
-```bash
-python your_script.py
-```
-
-A new file called `highlighted.pdf` will be saved in the same directory, with all matching words highlighted.
-
-```
-
-Let me know if you want it themed (e.g. dark mode badge, emoji-free, ultra-minimalist, etc.).
-```
-## 🛠️ Need Help?
-If you are having issues installing it I recommend asking ChatGPT or shoot me an email at brunohg@umich.edu
